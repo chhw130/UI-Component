@@ -9,14 +9,9 @@ type AccordionItemProps = {
   toggle: () => void
 }
 
-const AccordionItem = ({
-  title,
-  description,
-  current,
-  toggle,
-}: AccordionItemProps) => {
+const AccordionItem = ({ title, description }: AccordionItemProps) => {
   return (
-    <li className={cx('item3', { current })} onClick={toggle}>
+    <li className={cx('item3')}>
       <div className={cx('tab')}>{title}</div>
       <div className={cx('description')}>{description}</div>
     </li>
