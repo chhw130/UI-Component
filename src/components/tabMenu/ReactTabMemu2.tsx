@@ -8,6 +8,26 @@ type TabItemsProps = {
   toggle: () => void
 }
 
+type BaseButtonProps = {
+  children: React.ReactNode
+  icon?: React.ReactNode
+} & React.ButtonHTMLAttributes<HTMLButtonElement>
+
+const BaseButton = ({ children, ...props }: BaseButtonProps) => {
+  return <button {...props}>{children}</button>
+}
+
+const SubmitButton = () => {
+  const onClickSubmitButton = () => {
+    console.log('submit')
+  }
+  return (
+    <BaseButton icon={<PenIcon />} onClick={onClickSubmitButton}>
+      Submit
+    </BaseButton>
+  )
+}
+
 const TabItems = ({ title, toggle, current }: TabItemsProps) => {
   return (
     <li className={cx('tab', { current })} onClick={toggle}>
